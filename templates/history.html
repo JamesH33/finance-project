@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped" style="text-align: left;">
+        <thead>
+            <th>Purchase/Sale</th>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price Per Share</th>
+            <th>Total Price</th>
+            <th>Transacted</th>
+        </thead>
+        <tbody>
+            {% for row in transactions %}
+                <tr>
+                    <td>{{ row["transaction_type"] }}</td>
+                    <td>{{ row["symbol"] }}</td>
+                    <td>{{ row["amount"] }}</td>
+                    <td>{{ row["price_per"] }}</td>
+                    <td>{{ row["total_price"] }}</td>
+                    <td>{{ row["timestamp"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
